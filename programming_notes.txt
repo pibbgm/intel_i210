@@ -1,0 +1,27 @@
+3.7.1 
+CTRL_EXT.LINK_MODE
+
+Link Mode 	I210 Mode
+________________________________
+00b 		Internal PHY
+01b 		1000BASE-KX
+10b 		SGMII
+11b 		SerDes/1000BASE-BX
+Use the above information to check what is current interface support for the device which is 
+programmed from the eeprom.
+
+"Selecting between the various configurations is programmable via the MAC's the Extended Device
+Control register (CTRL_EXT.LINK_MODE bits) and default is set via Flash settings."
+
+3.7.2
+an internal MDIO/MDC interface, accessible via software, is used to configure the internal PHY.
+
+3.7.2.2
+When the MDICNFG.destination is clear, the MDIO access is always to the internal PHY and the PHY
+address is ignored
+
+The external port PHY address is written in the MDICNFG.PHYADD register field, which is loaded from
+the Initialization Control 4 Flash word following reset.
+
+CTRL.ASDE and CTRL.FRCSPD are both 0b for mac auto negotiation speed setting
+
